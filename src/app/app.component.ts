@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Activities } from './models';
+import { Activities, RSVP } from './models';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +7,14 @@ import { Activities } from './models';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'day32';
   
+  rsvps: RSVP[]=[]
+  
+  addRsvpToList(rsvp: RSVP) {
+    console.info('rsvp >>> ', rsvp)
+      const rsvps = this.rsvps.push(rsvp)
+  }
+
   processNewActivity(activities: Activities) {
     console.info('>>>> process activities: ', activities)
   }

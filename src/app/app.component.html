@@ -1,11 +1,14 @@
-<h1>ニャアクテン書店街</h1>
+<h1>Day 32 Lesson</h1>
 
-<app-todo (onNewActivity)="processNewActivity($event)"></app-todo>
+<div class="box-it">
+    <h2>App-Registration Component</h2>
+    <app-registration (onNewRsvp)="addRsvpToList($event)" [rsvps]="rsvps"></app-registration>
+</div>
+<br>
+<div class="box-it">
+    <h2>App-Todo Component</h2>
+    <app-todo (onNewActivity)="processNewActivity($event)"></app-todo>
+</div>
 
 
-<!--
-
-<app-registration></app-registration>
-
--->
 

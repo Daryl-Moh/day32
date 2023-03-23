@@ -47,17 +47,34 @@
                 </button>
             </td>
         </tr>
+        <tr>
+            <td *ngFor="let r of rsvps">
+                <span>{{ r.name }}</span>
+                <br>
+                <span>{{ r.email }}</span>
+                <br>
+                <span>{{ r.age }}</span>
+                <br>
+                <span>{{ r.attendance }}</span>
+            </td>
+
+        </tr>
     </table>
-
-    <table>
-        <tr>
-          <td>Pristine</td>
-          <td>{{ regForm.pristine }}</td>
-        </tr>
-        <tr>
-          <td>Dirty</td>
-          <td>{{ regForm.dirty }}</td>
-        </tr>
-      </table>
-
+    <br>
+    <div>
+        <table>
+            <tr>
+                <td>Pristine Status: </td>
+                    <div class="box-it">
+                        <td>{{ regForm.pristine }}</td>
+                    </div>
+            </tr>
+            <tr>
+              <td>Dirty Status: </td>
+              <div class="box-it">
+                <td>{{ regForm.dirty }}</td>
+              </div>
+            </tr>
+          </table>
+    </div>
 </form>

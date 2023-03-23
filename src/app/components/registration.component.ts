@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
 import { RSVP } from '../models';
 
 @Component({
@@ -8,6 +9,12 @@ import { RSVP } from '../models';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  @Input()
+  rsvps: RSVP[]=[]
+
+  @Output()
+  onNewRsvp = new Subject<RSVP>()
 
   regForm!: FormGroup
 
@@ -30,7 +37,9 @@ export class RegistrationComponent implements OnInit {
     // }
     
     const rsvp = this.regForm.value as RSVP
+    this.onNewRsvp.next(rsvp)
     console.info('>>> processing form', rsvp)
+    console.info('rsvp array >>> ', this.rsvps)
     this.regForm.reset()
   }
 
@@ -47,5 +56,5 @@ export class RegistrationComponent implements OnInit {
       attendance: this.fb.control<string>('', [ Validators.required ])
     })
   }
-  
+
 }
